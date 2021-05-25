@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lbNews = new System.Windows.Forms.ListBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -50,9 +51,22 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mfbScrap = new MaterialSkin.Controls.MaterialFlatButton();
+            this.mfbWishlist = new MaterialSkin.Controls.MaterialFlatButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToWishlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.lvWishlist = new System.Windows.Forms.ListView();
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mtc.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbNews
@@ -66,7 +80,7 @@
             this.lbNews.ItemHeight = 44;
             this.lbNews.Location = new System.Drawing.Point(0, 28);
             this.lbNews.Name = "lbNews";
-            this.lbNews.Size = new System.Drawing.Size(1284, 72);
+            this.lbNews.Size = new System.Drawing.Size(1359, 72);
             this.lbNews.TabIndex = 1;
             this.lbNews.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbNews_DrawItem);
             this.lbNews.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.lbNews_MeasureItem);
@@ -108,7 +122,7 @@
             this.lbstream.ItemHeight = 17;
             this.lbstream.Location = new System.Drawing.Point(0, 146);
             this.lbstream.Name = "lbstream";
-            this.lbstream.Size = new System.Drawing.Size(1284, 89);
+            this.lbstream.Size = new System.Drawing.Size(1359, 89);
             this.lbstream.TabIndex = 4;
             this.lbstream.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbstream_MouseDoubleClick);
             // 
@@ -119,6 +133,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mtc.Controls.Add(this.tabPage1);
             this.mtc.Controls.Add(this.tabPage2);
+            this.mtc.Controls.Add(this.tabPage3);
+            this.mtc.Controls.Add(this.tabPage4);
             this.mtc.Depth = 0;
             this.mtc.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtc.Location = new System.Drawing.Point(1, 111);
@@ -138,7 +154,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(891, 247);
+            this.tabPage1.Size = new System.Drawing.Size(966, 247);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             // 
@@ -223,6 +239,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.lvTopmovies.ContextMenuStrip = this.contextMenuStrip1;
             this.lvTopmovies.GridLines = true;
             this.lvTopmovies.HideSelection = false;
             this.lvTopmovies.Location = new System.Drawing.Point(3, 3);
@@ -257,6 +274,7 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.lvTopseries.ContextMenuStrip = this.contextMenuStrip1;
             this.lvTopseries.HideSelection = false;
             this.lvTopseries.Location = new System.Drawing.Point(492, 3);
             this.lvTopseries.Name = "lvTopseries";
@@ -288,11 +306,118 @@
             // 
             this.columnHeader8.Width = 0;
             // 
+            // mfbScrap
+            // 
+            this.mfbScrap.AutoSize = true;
+            this.mfbScrap.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mfbScrap.Depth = 0;
+            this.mfbScrap.Location = new System.Drawing.Point(322, 69);
+            this.mfbScrap.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mfbScrap.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mfbScrap.Name = "mfbScrap";
+            this.mfbScrap.Primary = false;
+            this.mfbScrap.Size = new System.Drawing.Size(114, 36);
+            this.mfbScrap.TabIndex = 11;
+            this.mfbScrap.Text = "Scrap a movie";
+            this.mfbScrap.UseVisualStyleBackColor = true;
+            // 
+            // mfbWishlist
+            // 
+            this.mfbWishlist.AutoSize = true;
+            this.mfbWishlist.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mfbWishlist.Depth = 0;
+            this.mfbWishlist.Location = new System.Drawing.Point(471, 69);
+            this.mfbWishlist.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mfbWishlist.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mfbWishlist.Name = "mfbWishlist";
+            this.mfbWishlist.Primary = false;
+            this.mfbWishlist.Size = new System.Drawing.Size(74, 36);
+            this.mfbWishlist.TabIndex = 12;
+            this.mfbWishlist.Text = "Wishlist";
+            this.mfbWishlist.UseVisualStyleBackColor = true;
+            this.mfbWishlist.Click += new System.EventHandler(this.mfbWishlist_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToWishlistToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(155, 26);
+            this.contextMenuStrip1.Text = "Add to wishlist";
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // addToWishlistToolStripMenuItem
+            // 
+            this.addToWishlistToolStripMenuItem.BackColor = System.Drawing.Color.Yellow;
+            this.addToWishlistToolStripMenuItem.Name = "addToWishlistToolStripMenuItem";
+            this.addToWishlistToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.addToWishlistToolStripMenuItem.Text = "Add to Wishlist";
+            this.addToWishlistToolStripMenuItem.Click += new System.EventHandler(this.addToWishlistToolStripMenuItem_Click);
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 26);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(966, 247);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.lvWishlist);
+            this.tabPage4.Location = new System.Drawing.Point(4, 26);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(966, 247);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // lvWishlist
+            // 
+            this.lvWishlist.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvWishlist.BackColor = System.Drawing.Color.Yellow;
+            this.lvWishlist.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader12});
+            this.lvWishlist.HideSelection = false;
+            this.lvWishlist.Location = new System.Drawing.Point(-4, 0);
+            this.lvWishlist.Name = "lvWishlist";
+            this.lvWishlist.Size = new System.Drawing.Size(967, 251);
+            this.lvWishlist.TabIndex = 0;
+            this.lvWishlist.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Title";
+            this.columnHeader9.Width = 250;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Rating";
+            this.columnHeader10.Width = 100;
+            // 
+            // columnHeader11
+            // 
+            this.columnHeader11.Text = "Year";
+            this.columnHeader11.Width = 80;
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Link";
+            this.columnHeader12.Width = 290;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 389);
+            this.Controls.Add(this.mfbWishlist);
+            this.Controls.Add(this.mfbScrap);
             this.Controls.Add(this.mfbtops);
             this.Controls.Add(this.mfbnbo);
             this.Controls.Add(this.materialTabSelector3);
@@ -307,6 +432,8 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +461,16 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private MaterialSkin.Controls.MaterialFlatButton mfbScrap;
+        private MaterialSkin.Controls.MaterialFlatButton mfbWishlist;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem addToWishlistToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.ListView lvWishlist;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader11;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
     }
 }

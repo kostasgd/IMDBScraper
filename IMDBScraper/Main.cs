@@ -199,5 +199,36 @@ namespace IMDBScraper
             link = item.SubItems[3].Text;
             System.Diagnostics.Process.Start(link);
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            
+        }
+
+        private void addToWishlistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvTopseries.SelectedItems.Count == 0)
+                return;
+            string link = "";
+            string title = "";
+            string rating = "";
+            string year = "";
+            ListViewItem item = lvTopseries.SelectedItems[0];
+            title = item.SubItems[0].Text;
+            rating =  item.SubItems[1].Text;
+            year= item.SubItems[2].Text;
+            link = item.SubItems[3].Text;
+            lvWishlist.View = View.Details;
+            var lvi = lvWishlist.Items.Add(title.ToString());
+            lvi.SubItems.Add(rating.ToString());
+            lvi.SubItems.Add(year.ToString());
+            lvi.SubItems.Add(link.ToString());
+            //MessageBox.Show(link);
+        }
+
+        private void mfbWishlist_Click(object sender, EventArgs e)
+        {
+            mtc.SelectedIndex = 3;
+        }
     }
 }
