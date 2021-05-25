@@ -31,48 +31,11 @@ namespace IMDBScraper
             var mrating = doc.DocumentNode.SelectNodes("//tr/td[contains(@class,'ratingColumn imdbRating')]");
             var mtitle = doc.DocumentNode.SelectNodes("//td[contains(@class,'titleColumn')]/a");
             var link = doc.DocumentNode.SelectNodes("//td[@class='titleColumn']/a/@href");
-            List<string> links = new List<string>();
-            foreach (var item in mtitle)
-            {
-                var val = item.Attributes["href"].Value; //10743
-                links.Add("https://www.imdb.com/" + val.ToString().TrimStart().TrimEnd());
-            }
-            //var chromeOptions = new ChromeOptions();//δημιουργια αντικειμενου για να περασουμε τις επιλογες που θελουμε για το chrome driver
-            //chromeOptions.AddArguments("headless");//επιλογη ωστε το chrome driver να δουλευει χωρις κεφαλη
-            //var experimentalFlags = new List<string>();
-            //string mediasrc = "";//μεταβλητη που θα την γεμισουμε μετα
-            //var driverService = ChromeDriverService.CreateDefaultService();
-            //driverService.HideCommandPromptWindow = true;//κρυψιμο του prompt του selenium
-            //ChromeDriver driver = new ChromeDriver(driverService, chromeOptions);//δημιουργια chrome driver αντικειμενου και περασμα παραμετρων
-            //                                                                     //  driver.Navigate().GoToUrl("https://www.imdb.com/");
-            //chromeOptions.AddLocalStatePreference("browser.enabled_labs_experiments",
-            //    experimentalFlags);
-            //var cookies = driver.Manage().Cookies.AllCookies;
-            //Thread.Sleep(2000);
-            //   List<IWebElement> boxofcmtitle = driver.FindElements(By.XPath("//div[contains(@class,'TopBoxOfficeTitle__BoxOfficeTitleName')]")).ToList();
-            // List<IWebElement> boxofcmgross = driver.FindElements(By.XPath("//div[contains(@class,'TopBoxOfficeTitle__BoxOfficeGrossAmount')]")).ToList();
-            //  for(int l = 0; l < boxofcmgross.Count; l++)
-            {
-                //    lbstream.Items.Add(boxofcmtitle[l].Text.TrimEnd().TrimStart()+"\t \t"+ boxofcmgross[l].Text.TrimEnd().TrimStart());
-            }
-            lvTopmovies.View = View.Details;
-           // lvTopmovies.Columns.Add("Title");
-            //lvTopmovies.Columns.Add("Rating");
-           // lvTopmovies.Columns.Add("Year");
-            for (int i = 0; i < mtitle.Count; i++)
-            {
-                var lvi = lvTopmovies.Items.Add(mtitle[i].InnerText.ToString());
-                lvi.SubItems.Add(mrating[i].InnerText.ToString());
-                lvi.SubItems.Add(myear[i].InnerText.ToString());
-                lvi.SubItems.Add(links[i].ToString());
-                // add once again one row to column A and B
-                //lvi = lv.Items.Add("Item 2");
-                // lvi.SubItems.Add("SubItem 2");
-            }
-            // getNews();
+            
+            getTopSeries();
         }
 
-        public void getTop()
+        public void getTopMovies()
         {
             HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
             HtmlAgilityPack.HtmlDocument doc = web.Load("https://www.imdb.com/chart/top/?ref_=nv_mv_250");
@@ -83,7 +46,12 @@ namespace IMDBScraper
             {
                 Console.WriteLine(item.InnerText.ToString().TrimStart().TrimEnd());
             }
-
+            List<string> links = new List<string>();
+            foreach (var item in mtitle)
+            {
+                var val = item.Attributes["href"].Value; //10743
+                links.Add("https://www.imdb.com/" + val.ToString().TrimStart().TrimEnd());
+            }
             lvTopmovies.View = View.Details;
             for (int i = 0; i < mtitle.Count; i++)
             {
@@ -93,7 +61,33 @@ namespace IMDBScraper
 
             }
         }
-            public void getNews()
+        public void getTopSeries()
+        {
+            HtmlAgilityPack.HtmlWeb web = new HtmlAgilityPack.HtmlWeb();
+            HtmlAgilityPack.HtmlDocument doc = web.Load("https://www.imdb.com/chart/toptv/?ref_=nv_tvv_250");
+            var myear = doc.DocumentNode.SelectNodes("//span[@class='secondaryInfo']");
+            var mrating = doc.DocumentNode.SelectNodes("//tr/td[contains(@class,'ratingColumn imdbRating')]");
+            var mtitle = doc.DocumentNode.SelectNodes("//td[contains(@class,'titleColumn')]/a");
+            foreach (var item in mtitle)
+            {
+                //Console.WriteLine(item.InnerText.ToString().TrimStart().TrimEnd());
+            }
+            List<string> links = new List<string>();
+            foreach (var item in mtitle)
+            {
+                var val = item.Attributes["href"].Value; //10743
+                links.Add("https://www.imdb.com/" + val.ToString().TrimStart().TrimEnd());
+            }
+            lvTopseries.View = View.Details;
+            for (int i = 0; i < mtitle.Count; i++)
+            {
+                var lvi = lvTopseries.Items.Add(mtitle[i].InnerText.ToString());
+                lvi.SubItems.Add(mrating[i].InnerText.ToString());
+                lvi.SubItems.Add(myear[i].InnerText.ToString());
+                lvi.SubItems.Add(links[i].ToString());
+            }
+        }
+        public void getNews()
         {
             var chromeOptions = new ChromeOptions();//δημιουργια αντικειμενου για να περασουμε τις επιλογες που θελουμε για το chrome driver
             chromeOptions.AddArguments("headless");//επιλογη ωστε το chrome driver να δουλευει χωρις κεφαλη
@@ -192,6 +186,16 @@ namespace IMDBScraper
                 return;
             string link = "";
             ListViewItem item = lvTopmovies.SelectedItems[0];
+            link = item.SubItems[3].Text;
+            System.Diagnostics.Process.Start(link);
+        }
+
+        private void lvTopseries_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lvTopseries.SelectedItems.Count == 0)
+                return;
+            string link = "";
+            ListViewItem item = lvTopseries.SelectedItems[0];
             link = item.SubItems[3].Text;
             System.Diagnostics.Process.Start(link);
         }

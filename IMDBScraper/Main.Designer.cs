@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lbNews = new System.Windows.Forms.ListBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -43,8 +44,12 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvTopseries = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.mtc.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -54,7 +59,7 @@
             // 
             this.lbNews.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbNews.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbNews.BackColor = System.Drawing.Color.Yellow;
             this.lbNews.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.lbNews.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNews.FormattingEnabled = true;
@@ -97,7 +102,7 @@
             // 
             this.lbstream.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbstream.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.lbstream.BackColor = System.Drawing.Color.Yellow;
             this.lbstream.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbstream.FormattingEnabled = true;
             this.lbstream.ItemHeight = 17;
@@ -120,7 +125,7 @@
             this.mtc.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtc.Name = "mtc";
             this.mtc.SelectedIndex = 0;
-            this.mtc.Size = new System.Drawing.Size(899, 277);
+            this.mtc.Size = new System.Drawing.Size(974, 277);
             this.mtc.TabIndex = 5;
             // 
             // tabPage1
@@ -140,23 +145,22 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.White;
-            this.tabPage2.Controls.Add(this.listView1);
+            this.tabPage2.Controls.Add(this.lvTopseries);
             this.tabPage2.Controls.Add(this.lvTopmovies);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(891, 247);
+            this.tabPage2.Size = new System.Drawing.Size(966, 247);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
             // materialTabSelector2
             // 
-            this.materialTabSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialTabSelector2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector2.BackColor = System.Drawing.Color.Yellow;
             this.materialTabSelector2.BaseTabControl = null;
             this.materialTabSelector2.Depth = 0;
-            this.materialTabSelector2.Location = new System.Drawing.Point(803, 75);
+            this.materialTabSelector2.Location = new System.Drawing.Point(878, 75);
             this.materialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector2.Name = "materialTabSelector2";
             this.materialTabSelector2.Size = new System.Drawing.Size(97, 10);
@@ -165,12 +169,11 @@
             // 
             // materialTabSelector3
             // 
-            this.materialTabSelector3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialTabSelector3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector3.BackColor = System.Drawing.Color.Yellow;
             this.materialTabSelector3.BaseTabControl = null;
             this.materialTabSelector3.Depth = 0;
-            this.materialTabSelector3.Location = new System.Drawing.Point(782, 93);
+            this.materialTabSelector3.Location = new System.Drawing.Point(857, 93);
             this.materialTabSelector3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector3.Name = "materialTabSelector3";
             this.materialTabSelector3.Size = new System.Drawing.Size(118, 10);
@@ -224,7 +227,7 @@
             this.lvTopmovies.HideSelection = false;
             this.lvTopmovies.Location = new System.Drawing.Point(3, 3);
             this.lvTopmovies.Name = "lvTopmovies";
-            this.lvTopmovies.Size = new System.Drawing.Size(485, 241);
+            this.lvTopmovies.Size = new System.Drawing.Size(486, 241);
             this.lvTopmovies.TabIndex = 0;
             this.lvTopmovies.UseCompatibleStateImageBehavior = false;
             this.lvTopmovies.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTopmovies_MouseDoubleClick);
@@ -244,29 +247,58 @@
             this.columnHeader3.Text = "Year";
             this.columnHeader3.Width = 85;
             // 
-            // listView1
+            // lvTopseries
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(495, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(393, 244);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvTopseries.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lvTopseries.BackColor = System.Drawing.Color.Yellow;
+            this.lvTopseries.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+            this.lvTopseries.HideSelection = false;
+            this.lvTopseries.Location = new System.Drawing.Point(492, 3);
+            this.lvTopseries.Name = "lvTopseries";
+            this.lvTopseries.Size = new System.Drawing.Size(474, 241);
+            this.lvTopseries.TabIndex = 1;
+            this.lvTopseries.UseCompatibleStateImageBehavior = false;
+            this.lvTopseries.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvTopseries_MouseDoubleClick);
             // 
             // columnHeader4
             // 
             this.columnHeader4.Width = 0;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Title";
+            this.columnHeader5.Width = 250;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Rating";
+            this.columnHeader6.Width = 100;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Year";
+            this.columnHeader7.Width = 90;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Width = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 389);
+            this.ClientSize = new System.Drawing.Size(972, 389);
             this.Controls.Add(this.mfbtops);
             this.Controls.Add(this.mfbnbo);
             this.Controls.Add(this.materialTabSelector3);
             this.Controls.Add(this.materialTabSelector2);
             this.Controls.Add(this.mtc);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Imdb Scraper";
@@ -296,7 +328,11 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvTopseries;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }
